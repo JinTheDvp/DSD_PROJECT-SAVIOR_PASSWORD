@@ -3,6 +3,7 @@ const checkboxMayus = document.getElementById("mayus-checkbox")
 const checkboxMinus = document.getElementById("minus-checkbox")
 const checkboxNums = document.getElementById("nums-checkbox")
 const patternSelect = document.getElementById("pattern-select")
+const userChars = document.getElementById("userCharacters")
 
 const clipboardButton = document.getElementById("clipboard-button")
 const copyP = document.getElementById("succesfulCopy")
@@ -31,14 +32,34 @@ generateButton.addEventListener("click", () => {
         
     let final = ""
 
-    if (checkboxMayus.value == "on") {final += alphabetMayus}
-    if (checkboxMinus.value == "on") {final += alphabetMinus}
-    if (checkboxNums.value == "on") {final += numbers}
-    if (checkboxSpecials.value == "on") {final += specials}
+    if (checkboxMayus.checked) {final += alphabetMayus}
+    if (checkboxMinus.checked) {final += alphabetMinus}
+    if (checkboxNums.checked) {final += numbers}
+    if (checkboxSpecials.checked) {final += specials}
+
+    final += userChars.value.split("").filter(elem => final.indexOf(elem) == -1).join("")
 
     let result = ""
 
-    if (patternSelect.value == "Sin Patron") {
+    if (final == "") {
+
+        resultP.style.display = "none"
+        clipboardButton.style.display = "none"
+        copyP.style.display = "block"
+        copyP.style.backgroundColor = "red"
+        copyP.innerText = "No hay caracteres disponibles para la petición"
+
+        setTimeout(() => {
+            resultP.style.display = "inline"; resultP.innerText = "Hacé otra petición"
+            clipboardButton.style.display = "inline"
+            copyP.style.display = "none"; copyP.style.backgroundColor = "green" // returns to the other form
+            
+
+        }, 3000)
+
+    }
+
+    if (patternSelect.value == "Sin Patron") { 
         for (let i=0; i<slider.value; i++) {
             result += final[Math.floor(Math.random() * final.length)]
         }
@@ -53,7 +74,7 @@ generateButton.addEventListener("click", () => {
         }
     }
 
-        resultP.innerHTML = result
+    if (final != "") {resultP.innerHTML = result}
 })
 
 clipboardButton.addEventListener("click", () => {

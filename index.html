@@ -214,8 +214,15 @@
 
                         <p style="display: inline; background-color: var(--bs-primary); padding: 11px; border-radius: 10px; color:white" id="result-p">resultado</p>
                         
-                        <button class="btn btn-secondary" style="transform: translateY(-2px);"> <i class='bx bx-clipboard' style="font-size: 20px;"></i> </button>
+                        <button class="btn btn-secondary" style="transform: translateY(-2px);" id="clipboard-button"> <i class='bx bx-clipboard' style="font-size: 20px;"></i> </button>
                     </div>
+
+                    <br>
+
+                    <p id="succesfulCopy" style="background-color: var(--bs-primary); opacity: 0.7; width: 90%; margin: auto; padding: 5px; border-radius: 20px; color: white; display: none;">
+                        Contraseña copiada al portapapeles
+                        <button class="btn" style="font-size: 25px; color: white;" id="closeCopiedMessage"> <i class='bx bxs-x-square'></i> </button>
+                    </p>
             
                 </div>
 
@@ -223,66 +230,7 @@
 
         </section>
 
-        <script>
-            const checkboxSpecials = document.getElementById("specials-checkbox")
-            const checkboxMayus = document.getElementById("mayus-checkbox")
-            const checkboxMinus = document.getElementById("minus-checkbox")
-            const checkboxNums = document.getElementById("nums-checkbox")
-            const patternSelect = document.getElementById("pattern-select")
-
-            const slider = document.getElementById("rangePassword")
-            const outputSlider = document.getElementById("output-rangePassword")
-
-            outputSlider.innerHTML = slider.value
-            slider.oninput = () => {
-                outputSlider.innerHTML = slider.value
-                if (slider.value == 5) {outputSlider.innerHTML += " <small>(min)</small>"}
-                if (slider.value == 20) {outputSlider.innerHTML += " <small>(max)</small>"}
-            }
-
-            const generateButton = document.getElementById("generatePassword-button")
-            const resultP = document.getElementById("result-p")
-            generateButton.addEventListener("click", () => {
-                
-                let alphabetMinus = "abcdefghijklmnopqrstuvwxyz" // no ñ
-                let alphabetMayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" // no ñ
-                let numbers = "1234567890"
-                let specials = "&%$:_-"
-
-                let vowels = "aeiou"
-                let consonants = "bcdfghjklmnpqrstvwxyz"
-                
-                let final = ""
-
-                if (checkboxMayus.value == "on") {final += alphabetMayus}
-                if (checkboxMinus.value == "on") {final += alphabetMinus}
-                if (checkboxNums.value == "on") {final += numbers}
-                if (checkboxSpecials.value == "on") {final += specials}
-
-                let result = ""
-
-                if (patternSelect.value == "Sin Patron") {
-                    for (let i=0; i<slider.value; i++) {
-                        result += final[Math.floor(Math.random() * final.length)]
-                    }
-                } else if (patternSelect.value == "1") {
-
-                    result += alphabetMayus[Math.floor(Math.random() * alphabetMayus.length)]
-                    for (let i=0; i<slider.value-2; i++) {
-
-                        if (i % 2 == 0) {result += vowels[Math.floor(Math.random() * vowels.length)]}
-                        else {result += consonants[Math.floor(Math.random() * consonants.length)]}
-
-                    }
-                    for (let i=0; i<2; i++) {
-                        result += numbers[Math.floor(Math.random() * numbers.length)]
-                    }
-                }
-
-                resultP.innerHTML = result
-            })
-
-        </script>
+        <script src="./js/generator.js"></script>
 
         <!--Section: "Pie de página/Footer"-->
         <footer class="footer text-center">

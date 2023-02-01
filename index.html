@@ -11,8 +11,9 @@
         <title>Savior Password</title>
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons -->
+        <!-- Icons -->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://iconos8.es/icon/38591/copiar-a-portapapeles" crossorigin="anonymous"></script>
         <!-- Google fonts -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
@@ -52,9 +53,40 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 
-                <p class="masthead-subheading font-weight-light mb-0" style="color: black">
-                    (GENERADOR)
-                </p>
+                <div class="masthead-subheading font-weight-light mb-0">
+                    <div style="background-color: gray; padding: 100px; padding-left: 100px; padding-right: 100px; border-radius: 5px; border-style: dotted;border-color: black;">
+                        
+                        <div>
+                            <p style="color: black;">
+                                <b> Aquí podrás generar una contraseña aleatoria </b>
+                            </p>
+                        </div>
+
+                        <div style="color: black;">
+                            <form>
+                                Longitud de <b> caracteres </b>
+                                <input type="number" min="4" max="20" id="charNumber">
+                                <input type="button" style="border-radius: 5px;" value="Aceptar" onclick="obtainCharNumber()"></input>
+                            </form>
+                        </div>
+
+                        <div style="background-color: white; padding: 10px; margin-top: 20px; border-radius: 5px;">
+                            <h6 id="password" style="color: black; margin: 5px;"> ... <!--Random generated password--> </h6>
+                        </div>
+                        <div>
+                            <button id="generate" style="margin-top: 20px; border-radius: 5px; background-color: brown;">Generar</button> 
+                            <button id="clipboard" style="border-style: none; background-color: gray;">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAJ
+                                xJREFUSEvtleENQDAQhb9OYARsYhQmwSSMYhQ2sAFpoiJXXGj41f5r+u6+10ubZ/h4mY/7owEaoFZMtIDVnS4JKIAOyF7ebAQq
+                                YHD1EmAF6cvmrsz2yK8Ay3bgwG6vMaV+Ny5v8DtAcy7PpUHvFXmCh4QIUAcWRxRHBPGjqf9gBhL1rdwLpmNgnSVaHxA6tnl5l2
+                                iB5v1yLfSDgSuNnCwZEfSwhgAAAABJRU5ErkJggg=="/>
+                            </button>
+                        </div>
+
+                        <b id="message"> <!--¡Contraseña copiada al portapapeles!--> </b>
+
+                    </div>
+                </div>
 
             </div>
         </header>
@@ -144,7 +176,7 @@
             </div>
         </section>
 
-        <!--Section: "Contacto/Contact"-->
+        <!--Section: "Nuestro Contacto/Our Contact"-->
         <section class="page-section bg-primary" id="contact">
             <div class="container">
 

@@ -46,3 +46,44 @@ window.addEventListener('DOMContentLoaded', event => {
 });
 
 // PASSWORD GENERATOR.
+const password = document.getElementById("password");
+const generateBtn = document.getElementById("generate");
+const clipboard = document.getElementById("clipboard");
+const message = document.getElementById("message");
+let randomChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&*+-=?@^_";
+
+function obtainCharNumber() {
+    const charNumber = parseInt(document.getElementById("charNumber").value);
+    
+    if (charNumber <= 3 || charNumber >= 21) {
+        alert("Error: Se deben colocar entre 4 a 20 caracteres.");
+        location.reload();
+        // clearLocalStorage();
+    } else if (isNaN(charNumber) == true) {
+        alert("Error: Se deben colocar solo números.");
+        location.reload();
+        // clearLocalStorage();
+    }
+
+    generateBtn.addEventListener("click", () => {
+        let generatedPass = "";
+        for (let i = 0; i < charNumber; i++) {
+            let randomPsw = randomChars[Math.floor(Math.random() * randomChars.length)]
+            generatedPass += randomPsw;
+        }
+        password.innerText = generatedPass;
+    });
+
+    clipboard.addEventListener("click", () => {
+        navigator.clipboard.writeText(password.innerText);
+        message.innerHTML = "<b style='color: aquamarine;'> ¡Contraseña copiada al portapapeles! </b>";
+        message.style.display = "block";
+        setTimeout(() => {
+            message.style.display = "none";
+        }, 1500);
+    });
+}
+
+function clearLocalStorage() {
+    localStorage.clear();
+}

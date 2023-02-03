@@ -1,4 +1,4 @@
-# Trying Ferrix Branch (Please no commit)
+# Trying Ferrix Branch (PLEASE DON'T COMMIT)
 
 Hi, I'm [Ferrix](https://github.com/FedericoPorras), Jin's friend, and DW2 Aprende Programando certified.
 

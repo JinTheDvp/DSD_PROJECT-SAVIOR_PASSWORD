@@ -48,24 +48,36 @@ window.addEventListener('DOMContentLoaded', event => {
 // PASSWORD GENERATOR.
 const password = document.getElementById("password");
 const generateBtn = document.getElementById("generate");
+const accBtn = document.getElementById("accept_button");
 const clipboard = document.getElementById("clipboard");
 const message = document.getElementById("message");
 let randomChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&*+-=?@^_";
 
-function obtainCharNumber() {
+function generatePsw() {
+    accBtn.addEventListener('click', () => {
+        accBtn.setAttribute("style", "background-color: gray; border-radius: 5px; border; 1px")
+        setTimeout(() => {
+            accBtn.setAttribute("style", "background-color: white; border-radius: 5px; border; 1px")
+        }, 100)
+    })
+
     const charNumber = parseInt(document.getElementById("charNumber").value);
+    
     
     if (charNumber <= 3 || charNumber >= 21) {
         alert("Error: Se deben colocar entre 4 a 20 caracteres.");
         location.reload();
-        // clearLocalStorage();
     } else if (isNaN(charNumber) == true) {
         alert("Error: Se deben colocar solo números.");
         location.reload();
-        // clearLocalStorage();
     }
 
     generateBtn.addEventListener("click", () => {
+        generateBtn.setAttribute("style", "margin-top: 20px; border-radius: 5px; background-color: red")
+        setTimeout(() => {
+            generateBtn.setAttribute("style", "margin-top: 20px; border-radius: 5px; background-color: brown")
+        }, 100)
+
         let generatedPass = "";
         for (let i = 0; i < charNumber; i++) {
             let randomPsw = randomChars[Math.floor(Math.random() * randomChars.length)]
@@ -84,6 +96,8 @@ function obtainCharNumber() {
     });
 }
 
-function clearLocalStorage() {
-    localStorage.clear();
+function accBtn_animation() {
+    const accept_button = document.getElementById("accept_button");
+
+    
 }

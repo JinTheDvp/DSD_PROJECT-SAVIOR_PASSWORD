@@ -18,6 +18,8 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css2? family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
         <!-- CSS -->
         <link href="css/styles.css" rel="stylesheet" />
 
@@ -45,7 +47,7 @@
         </nav>
 
         <!--Section: "Generador de contraseñas/Password generator"-->
-        <header class="masthead bg-primary text-white text-center">
+        <header id="fotocontraseña" class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
 
                 <h1 class="masthead-heading text-uppercase mb-0" style="color: black;">GENERADOR DE CONTRASEÑAS</h1>
@@ -65,7 +67,7 @@
 
                         <div style="color: black;">
                             <form>
-                                Longitud de <b> caracteres </b>
+                                Longitud de <b> carácteres </b>
                                 <input type="number" min="4" max="20" id="charNumber">
                                 <input type="button" id="accept_button" style="border-radius: 5px;" value="Aceptar" onclick="generatePsw()"></input>
                             </form>
@@ -124,6 +126,18 @@
                                 posibilidad de acceder a ellos por accidentes. Es por ello que es de suma importancia poseer contraseñas seguras,
                                 entre muchas otras cosas.
                             </p>
+                            <h4 style="font-size: 20px;">Medidas para el mantenimiento de la seguridad informática y la prevención de intrusiones</h4>
+                            <p style="font-size: 20px;">Los ataques más utilizados en contra de un sistema informático son los troyanos, los gusanos y la suplantación y espionaje a través de redes sociales. También son populares los ataques DoS/DDoS, que pueden ser usados para interrumpir los servicios. A menudo algunos usuarios autorizados pueden también estar directamente involucrados en el robo de datos o en su mal uso. Pero si se toman las medidas adecuadas, la gran mayoría de este tipo de ataques pueden prevenirse, por ejemplo a través de la creación de diferentes niveles de acceso, o incluso limitando el acceso físico. Las medidas de seguridad informática que puedes tomar incluyen:
+
+                            </p>
+                            <ul style="font-size: 20px;"> 
+                                <li>Asegurar la instalación de software legalmente adquirido: por lo general el software legal está libre de troyanos o virus.</li>
+                                <li>Suites antivirus: con las reglas de configuración y del sistema adecuadamente definidos.</li>
+                                <li>Hardware y software cortafuegos: los firewalls ayudan con el bloqueo de usuarios no autorizados que intentan acceder a tu computadora o tu red.</li>
+                                <li>Uso de contraseñas complejas y grandes: las contraseñas deben constar de varios caracteres especiales, números y letras. Esto ayuda en gran medida a que un hacker pueda romperla fácilmente.</li>
+                                <li>Cuidado con la ingeniería social: a través de las redes sociales los ciberdelincuentes pueden intentar obtener datos e información que pueden utilizar para realizar ataques.</li>
+                                <li>Criptografía, especialmente la encriptación: juega un papel importante en mantener nuestra información sensible, segura y secreta.</li>
+                            </ul>
                         </div>
 
                     </div>
@@ -380,7 +394,7 @@
         <section class="page-section bg-primary" id="contact">
             <div class="container">
 
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contactanos</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contáctanos</h2>
 
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
